@@ -1,0 +1,14 @@
+{
+    "scripts": {
+        "dev": "tailwindcss -i ./src/css/app.css -o ./dist/app.css --watch",
+        "build": "tailwindcss -i ./src/css/app.css -o ./dist/app.css --minify",
+        "sync": "browser-sync start --proxy \"http://localhost/stroiprov/\" --files \"**/*.php, dist/*.css\""
+    },
+    "devDependencies": {
+        "browser-sync": "^3.0.4",
+        "tailwindcss": "^4.3.3"
+    },
+    "dependencies": {
+        "@tailwindcss/cli": "^4.3.3"
+    }
+}
