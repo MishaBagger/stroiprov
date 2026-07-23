@@ -1,1 +1,40 @@
 @import "tailwindcss";
+
+@theme {
+    --font-arimo: 'Arimo', sans-serif; /* Заголовки */
+    --font-sans: 'PT Sans', sans-serif; /* Акцент */ 
+    --font-golos: 'Golos+Text', sans-serif; /* Текст */
+
+     /* Основные брендовые цвета (Техно-стиль) */
+    --color-primary-900: #0F172A;  /* Шапка, футер */
+    --color-primary-800: #1E293B;  /* Заголовки, тёмные блоки */
+    --color-primary-700: #334155;  /* Элементы навигации */
+    
+    --color-primary-500: #0EA5E9;  /* Основной акцент (кнопки, ссылки) */
+    --color-primary-400: #38BDF8;  /* Ховеры, подсветка */
+    --color-primary-300: #7DD3FC;  /* Лёгкие акценты */
+    --color-primary-100: #E0F2FE;  /* Фон для бейджей/алертов */
+    --color-primary-50: #F0F9FF;   /* Светлый фон секций */
+
+    /* Вторичный акцент (для контраста) */
+    --color-secondary: #2563EB;
+    --color-secondary-light: #DBEAFE;
+
+    /* Статусные цвета */
+    --color-success: #10B981;
+    --color-warning: #F59E0B;
+    --color-danger: #EF4444;
+    --color-info: #6366F1;
+
+    /* Текст и фон */
+    --color-gray-900: #0F172A;
+    --color-gray-800: #1E293B;
+    --color-gray-700: #334155;
+    --color-gray-600: #475569;
+    --color-gray-500: #64748B;
+    --color-gray-400: #94A3B8;
+    --color-gray-300: #CBD5E1;
+    --color-gray-200: #E2E8F0;
+    --color-gray-100: #F1F5F9;
+    --color-gray-50: #F8FAFC;
+}

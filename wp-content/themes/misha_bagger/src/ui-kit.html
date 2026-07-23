@@ -1,0 +1,78 @@
+
+<!-- Основная кнопка (Акцент) -->
+<button class="bg-primary-500 hover:bg-primary-400 text-white font-medium py-3 px-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300">
+    Записаться на курс
+</button>
+
+<!-- Второстепенная кнопка (Outline) -->
+<button class="border-2 border-primary-500 text-primary-500 hover:bg-primary-500 hover:text-white font-medium py-3 px-6 rounded-lg transition-all duration-300">
+    Подробнее
+</button>
+
+<!-- Серая кнопка (нейтральная) -->
+<button class="bg-gray-200 hover:bg-gray-300 text-gray-700 font-medium py-2 px-4 rounded-lg transition-all duration-300">
+    Отмена
+</button>
+
+<header class="bg-primary-900 text-gray-200 border-b border-primary-700">
+    <div class="container mx-auto px-6 py-4 flex items-center justify-between">
+        <!-- Логотип светлый -->
+        <div class="text-2xl font-bold text-white tracking-tight">Строй<span class="text-primary-500">Мех</span></div>
+        
+        <ul class="flex space-x-8 text-sm font-medium">
+            <li><a href="#" class="hover:text-white transition">Курсы</a></li>
+            <li><a href="#" class="hover:text-white transition">О нас</a></li>
+            <li><a href="#" class="hover:text-white transition">Контакты</a></li>
+        </ul>
+        
+        <button class="bg-primary-500 hover:bg-primary-400 text-white px-5 py-2 rounded-lg text-sm font-semibold shadow-lg transition">
+            Записаться
+        </button>
+    </div>
+</header>
+
+<div class="bg-white rounded-2xl shadow-sm hover:shadow-xl border border-gray-100 p-6 transition-all duration-300 group">
+    <div class="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center mb-4 group-hover:bg-primary-500 group-hover:text-white transition-colors">
+        <!-- Иконка (SVG) -->
+        <svg class="w-6 h-6 text-primary-500 group-hover:text-white" fill="currentColor" viewBox="0 0 20 20">
+            <path d="..."/>
+        </svg>
+    </div>
+    <h3 class="text-xl font-semibold text-primary-800">Экскаваторщик</h3>
+    <p class="text-gray-500 text-sm mt-2">Профессиональная подготовка</p>
+    <div class="mt-4 flex items-center justify-between">
+        <span class="text-2xl font-bold text-gray-900">45 000 ₽</span>
+        <span class="bg-primary-100 text-primary-600 text-xs font-semibold px-3 py-1 rounded-full">Популярный</span>
+    </div>
+</div>
+
+<div class="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
+    <table class="w-full text-sm">
+        <thead>
+            <tr class="bg-gray-50 border-b border-gray-200">
+                <th class="px-6 py-4 text-left font-semibold text-gray-500 uppercase tracking-wider">Название</th>
+                <th class="px-6 py-4 text-left font-semibold text-gray-500 uppercase tracking-wider">Часов</th>
+                <th class="px-6 py-4 text-left font-semibold text-gray-500 uppercase tracking-wider">Цена</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="border-b border-gray-100 hover:bg-primary-50 transition-colors">
+                <td class="px-6 py-4 font-medium text-gray-900">Крановщик</td>
+                <td class="px-6 py-4 text-gray-500">120 ч.</td>
+                <td class="px-6 py-4 font-bold text-primary-600">55 000 ₽</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="bg-white rounded-2xl shadow-lg p-8 border border-gray-100 max-w-md mx-auto">
+    <h3 class="text-2xl font-bold text-primary-800 mb-2">Оставить заявку</h3>
+    <p class="text-gray-500 text-sm mb-6">Мы перезвоним вам в течение часа</p>
+    
+    <input type="text" placeholder="Ваше имя" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none transition-all duration-300">
+    <input type="tel" placeholder="+7 (___) ___-__-__" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl mt-4 focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none transition-all duration-300">
+    
+    <button class="w-full bg-primary-500 hover:bg-primary-400 text-white font-semibold py-3 rounded-xl mt-6 shadow-md hover:shadow-lg transition-all duration-300">
+        Отправить
+    </button>
+</div>
