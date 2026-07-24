@@ -1,6 +1,8 @@
 @import "tailwindcss";
 
 @theme {
+    --breakpoint-xs: 400px;
+
     --font-arimo: 'Arimo', sans-serif; /* Заголовки */
     --font-sans: 'PT Sans', sans-serif; /* Акцент */ 
     --font-golos: 'Golos+Text', sans-serif; /* Текст */
@@ -37,4 +39,12 @@
     --color-gray-200: #E2E8F0;
     --color-gray-100: #F1F5F9;
     --color-gray-50: #F8FAFC;
+}
+
+#desktop_menu a[aria-current="page"] {
+    @apply font-bold text-primary-400;
+}
+
+#mobile-menu a[aria-current="page"] {
+    @apply font-bold text-primary-400 border-l-4 border-primary-500 pl-2;
 }

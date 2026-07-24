@@ -34,14 +34,16 @@
                     <?php endif; ?>
                 </a>
 
-                <nav class="hidden lg:flex items-center xl:space-x-8 lg:space-x-2 text-base font-medium">
-                    <a href="#" class="text-white hover:text-primary-400 transition duration-300">Учебный центр</a>
-                    <a href="#" class="text-white hover:text-primary-400 transition duration-300">Охрана труда</a>
-                    <a href="#" class="text-white hover:text-primary-400 transition duration-300">Промышленная безопасность</a>
-                    <a href="#" class="text-white hover:text-primary-400 transition duration-300">Электробезопасность</a>
-                    <a href="#" class="text-white hover:text-primary-400 transition duration-300">Дистанционное обучение</a>
-                    <a href="#" class="text-white hover:text-primary-400 transition duration-300">Новости</a>
-                    <a href="#" class="text-white hover:text-primary-400 transition duration-300">ЦОК</a>
+                <nav id="desktop_menu" class="hidden lg:flex items-center xl:space-x-8 lg:space-x-2 text-base font-medium">
+                    <?php
+                    wp_nav_menu([
+                        'theme_location' => 'primary',
+                        'menu_class'     => 'flex items-center xl:space-x-8 lg:space-x-2 text-base font-medium',
+                        'container'      => false,
+                        'fallback_cb'    => false,
+                        'depth'          => 1,
+                    ]);
+                    ?>
                 </nav>
 
                 <button id="burger-button"
@@ -54,18 +56,20 @@
                 </button>
             </div>
 
-            <nav id="mobile-menu" class="lg:hidden hidden pb-6">
+            <nav id="mobile-menu" class="lg:hidden hidden p-6 absolute left-0 right-0 top-full bg-primary-700 shadow-lg  border-primary-600 z-50 h-screen overflow-y-auto">
                 <div class="flex flex-col space-y-4 text-base font-medium">
-                    <a href="#" class="text-white hover:text-primary-400 transition duration-300 py-2 border-b border-primary-500">Учебный центр</a>
-                    <a href="#" class="text-white hover:text-primary-400 transition duration-300 py-2 border-b border-primary-500">Охрана труда</a>
-                    <a href="#" class="text-white hover:text-primary-400 transition duration-300 py-2 border-b border-primary-500">Промышленная безопасность</a>
-                    <a href="#" class="text-white hover:text-primary-400 transition duration-300 py-2 border-b border-primary-500">Электробезопасность</a>
-                    <a href="#" class="text-white hover:text-primary-400 transition duration-300 py-2 border-b border-primary-500">Дистанционное обучение</a>
-                    <a href="#" class="text-white hover:text-primary-400 transition duration-300 py-2 border-b border-primary-500">Новости</a>
-                    <a href="#" class="text-white hover:text-primary-400 transition duration-300 py-2 border-b border-primary-500">ЦОК</a>
+                    <?php
+                    wp_nav_menu([
+                        'theme_location' => 'primary',
+                        'menu_class'     => 'flex flex-col space-y-4 text-base font-medium',
+                        'container'      => false,
+                        'fallback_cb'    => false,
+                        'depth'          => 1,
+                    ]);
+                    ?>
                 </div>
             </nav>
         </div>
     </header>
 
-    <main class="min-h-screen">
+    <main class="">
