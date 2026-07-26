@@ -70,3 +70,20 @@ function stroiprov_menu() {
     );
 }
 add_action('wp_enqueue_scripts', 'stroiprov_menu');
+
+// Рендер картинок без костылей
+
+function render_acf_image($field_name, $page_id = null, $size = 'full', $class = '', $alt = '') {
+    if (!$page_id) {
+        $page_id = get_the_ID();
+    }
+    
+    $image_id = get_field($field_name, $page_id);
+    $image_url = $image_id ? wp_get_attachment_image_url($image_id, $size) : '';
+    
+    if ($image_url) {
+        $alt_text = $alt ?: $field_name;
+        $class_attr = $class ? ' class="' . esc_attr($class) . '"' : '';
+        echo '<img src="' . esc_url($image_url) . '" alt="' . esc_attr($alt_text) . '"' . $class_attr . '>';
+    }
+}
