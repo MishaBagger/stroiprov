@@ -67,9 +67,16 @@
                         'depth'          => 1,
                     ]);
                     ?>
+                    <?php
+                    wp_nav_menu([
+                        'theme_location' => 'footer_info',
+                        'menu_class'     => 'flex flex-col space-y-4 text-base font-medium',
+                        'container'      => false,
+                        'fallback_cb'    => false,
+                        'depth'          => 1,
+                    ]);
+                    ?>
                 </div>
             </nav>
         </div>
     </header>
-
-    <main class="">
