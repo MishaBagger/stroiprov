@@ -97,7 +97,7 @@ $bg_url = $bg_image_id ? wp_get_attachment_image_url($bg_image_id, 'full') : '';
                             ?>
                                 <li class="py-1">
                                     <a class="text-base sm:text-lg text-primary-700 hover:text-primary-500 hover:pl-2 transition-all duration-300 flex items-center gap-2"
-                                        href="<?php echo esc_url($link); ?>">
+                                        href="<?php echo esc_url(home_url($link)); ?>">
                                         <span class="w-1.5 h-1.5 bg-primary-400 rounded-full shrink-0"></span>
                                         <?php echo esc_html($title); ?>
                                     </a>
