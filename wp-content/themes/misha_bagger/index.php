@@ -371,9 +371,70 @@ $bg_url = $bg_image_id ? wp_get_attachment_image_url($bg_image_id, 'full') : '';
                     allow="geolocation"
                     style="display: block; width: 100%; max-width: 800px; height: 400px"
                     class="md:height: 500px; lg:height: 600px;">
-                    
+
                 </iframe>
             <?php endif; ?>
+        </div>
+    </div>
+</section>
+
+<!-- Раздел филиалов -->
+
+<section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+            <span class="inline-block bg-primary-100 text-primary-600 px-4 py-1 rounded-full text-sm font-semibold font-sans uppercase tracking-wider">Филиалы</span>
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary-900 font-arimo mt-3">
+                <?php the_field('section_5', $page_id); ?>
+            </h2>
+            <div class="w-20 h-1 bg-linear-to-r from-primary-500 to-secondary mx-auto mt-4 rounded-full"></div>
+            <p class="text-gray-600 font-golos mt-4 max-w-2xl mx-auto">
+                <?php the_field('content_section_5', $page_id); ?>
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <?php
+            $branches = get_field('branches', $page_id);
+            if ($branches) :
+                for ($i = 1; $i <= 3; $i++) :
+                    $title = $branches['branch_title_' . $i] ?? '';
+                    $text = $branches['branch_text_' . $i] ?? '';
+                    $image_id = $branches['branch_image_' . $i] ?? 0;
+                    $image_url = $image_id ? wp_get_attachment_image_url($image_id, 'full') : '';
+
+                    if (empty($title) && empty($text)) continue;
+            ?>
+                    <div class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300 overflow-hidden border border-gray-100 group">
+                        <?php if ($image_url) : ?>
+                            <div class="relative h-64 overflow-hidden">
+                                <img src="<?php echo esc_url($image_url); ?>"
+                                    alt="<?php echo esc_attr($title); ?>"
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                                <div class="absolute inset-0 bg-linear-to-t from-primary-900/60 to-transparent"></div>
+                                <div class="absolute bottom-4 left-4">
+                                    <span class="bg-primary-500 text-white text-xs font-semibold px-3 py-1 rounded-full">Филиал</span>
+                                </div>
+                            </div>
+                        <?php else : ?>
+                            <div class="relative h-64 bg-primary-100 flex items-center justify-center">
+                                <svg class="w-20 h-20 text-primary-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                                </svg>
+                            </div>
+                        <?php endif; ?>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold text-primary-800 font-arimo"><?php echo esc_html($title); ?></h3>
+                            <p class="text-gray-600 font-golos mt-2 leading-relaxed"><?php echo esc_html($text); ?></p>
+                            <button class="cursor-pointer hover:bg-primary-50 hover:text-secondary bg-secondary border-secondary  border-2 text-white text-xl font-semibold py-3 px-10 mt-5 rounded-2xl transition duration-300 block mx-auto">
+                                <?php the_field('button', $page_id); ?>
+                            </button>
+                        </div>
+                    </div>
+            <?php
+                endfor;
+            endif;
+            ?>
         </div>
     </div>
 </section>
