@@ -1,39 +1,33 @@
 <?php
-/*
-Template Name: Новости
-*/
 get_header();
 ?>
 
 <?php
-$page_id = get_the_ID();
-$bg_image = get_field('background_image', $page_id);
-$bg_url = $bg_image ? wp_get_attachment_image_url($bg_image, 'full') : '';
-?>
+$hero_title = get_field('news_hero_title', 'option') ?: 'Новости';
+$hero_subtitle = get_field('news_hero_subtitle', 'option') ?: 'Актуальные новости и события';
+$hero_bg = get_field('news_hero_background', 'option');
+$hero_bg_url = $hero_bg ? wp_get_attachment_image_url($hero_bg, 'full') : '';
 
-<main class="relative min-h-75 md:min-h-100 lg:min-h-125 w-full flex items-center justify-center overflow-hidden" style="<?php if ($bg_url) : ?>background-image: url('<?php echo esc_url($bg_url); ?>'); background-size: cover; background-position: center;<?php endif; ?>">
-    <div class="absolute inset-0 bg-primary-900/70"></div>
-    <div class="container mx-auto px-4 relative z-10 text-center">
-        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white font-arimo"><?php the_title(); ?></h1>
-        <div class="w-20 h-1 bg-primary-500 mx-auto mt-4 rounded-full"></div>
-        <p class="text-base sm:text-lg md:text-xl text-gray-200 mt-4 font-golos max-w-3xl mx-auto">
-           <?php the_field('subtitle', $page_id) ?> 
-        </p>
-    </div>
-</main>
+$accent_title = get_field('news_accent_title', 'option') ?: 'Новости';
+$section_title = get_field('news_section_title', 'option') ?: 'Последние новости';
+?>
 
 <section class="py-16 bg-primary-50">
     <div class="container mx-auto px-4">
         <div class="text-center mb-12">
-            <span class="inline-block bg-primary-100 text-primary-600 px-4 py-1 rounded-full text-sm font-semibold font-sans uppercase tracking-wider"><?php the_field('accent_title_section_1', $page_id) ?></span>
-            <h2 class="text-3xl sm:text-4xl font-bold text-primary-900 font-arimo mt-3"><?php the_field('title_section_1', $page_id) ?></h2>
+            <span class="inline-block bg-primary-100 text-primary-600 px-4 py-1 rounded-full text-sm font-semibold font-sans uppercase tracking-wider">
+                <?php echo esc_html($accent_title); ?>
+            </span>
+            <h2 class="text-3xl sm:text-4xl font-bold text-primary-900 font-arimo mt-3">
+                <?php echo esc_html($section_title); ?>
+            </h2>
         </div>
 
         <?php
         $paged = get_query_var('paged') ? get_query_var('paged') : 1;
         
         $news_args = array(
-            'post_type'      => 'post',
+            'post_type'      => 'news',
             'posts_per_page' => 9,
             'paged'          => $paged,
             'orderby'        => 'date',
@@ -48,7 +42,7 @@ $bg_url = $bg_image ? wp_get_attachment_image_url($bg_image, 'full') : '';
                     <article class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-shadow duration-300 overflow-hidden border border-gray-100 group">
                         <?php if (has_post_thumbnail()) : ?>
                             <div class="relative h-48 overflow-hidden">
-                                <img src="<?php the_post_thumbnail_url('medium'); ?>" 
+                                <img src="<?php the_post_thumbnail_url('high'); ?>" 
                                      alt="<?php the_title(); ?>" 
                                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                                 <div class="absolute top-3 right-3 bg-primary-500 text-white text-xs font-semibold px-3 py-1 rounded-full">

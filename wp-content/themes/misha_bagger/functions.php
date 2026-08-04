@@ -98,3 +98,48 @@ function render_acf_image($field_name, $page_id = null, $size = 'full', $class =
         echo '<img src="' . esc_url($image_url) . '" alt="' . esc_attr($alt_text) . '"' . $class_attr . '>';
     }
 }
+
+// Подключение CPT
+
+add_action('init', function() {
+    register_post_type('news', [
+        'labels' => [
+            'name'          => 'Новости',
+            'singular_name' => 'Новость',
+            'add_new'       => 'Добавить новую',
+            'add_new_item'  => 'Добавить новость',
+            'edit_item'     => 'Редактировать новость',
+            'new_item'      => 'Новая новость',
+            'view_item'     => 'Просмотреть новость',
+            'search_items'  => 'Искать новости',
+            'not_found'     => 'Новостей не найдено',
+            'menu_name'     => 'Новости',
+        ],
+        'public'             => true,
+        'publicly_queryable' => true,
+        'show_ui'            => true,
+        'show_in_menu'       => true,
+        'show_in_admin_bar'  => true,
+        'show_in_nav_menus'  => true,
+        'has_archive'        => true,
+        'hierarchical'       => false,
+        'menu_position'      => 5,
+        'menu_icon'          => 'dashicons-megaphone',
+        'supports'           => ['title', 'editor', 'thumbnail', 'excerpt', 'author', 'date'],
+        'rewrite'            => ['slug' => 'news', 'with_front' => false],
+        'capability_type'    => 'post',
+    ]);
+});
+
+if (function_exists('acf_add_options_page')) {
+    acf_add_options_page([
+        'page_title' => 'Настройки новостей',
+        'menu_title' => 'Настройки новостей',
+        'menu_slug'  => 'news-settings',
+        'capability' => 'manage_options',
+        'position'   => 20,
+        'icon_url'   => 'dashicons-megaphone',
+    ]);
+}
+
+add_theme_support('post-thumbnails');
