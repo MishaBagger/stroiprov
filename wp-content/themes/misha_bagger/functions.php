@@ -99,6 +99,26 @@ function render_acf_image($field_name, $page_id = null, $size = 'full', $class =
     }
 }
 
+function render_file_link($field_name, $page_id, $default_text) {
+    $file = get_field($field_name, $page_id);
+    if ($file) {
+        if (is_array($file)) {
+            $file_url = $file['url'];
+            $file_title = $file['title'] ?: basename($file_url);
+        } elseif (is_numeric($file)) {
+            $file_url = wp_get_attachment_url($file);
+            $file_title = get_the_title($file) ?: basename($file_url);
+        } else {
+            $file_url = $file;
+            $file_title = basename($file_url);
+        }
+        echo '<a href="' . esc_url($file_url) . '" download class="text-primary-500 hover:text-primary-400 transition font-semibold">' . esc_html($file_title) . '</a>';
+    } else {
+        echo '<span class="text-gray-400">' . esc_html($default_text) . ' (файл не загружен)</span>';
+    }
+}
+
+
 // Подключение CPT
 
 add_action('init', function() {
