@@ -48,3 +48,107 @@
 #mobile-menu a[aria-current="page"] {
     @apply font-bold text-primary-400 border-l-4 border-primary-500 pl-2;
 }
+
+.wpcf7-spinner {
+    display: block !important;
+    margin: 16px auto 0 auto !important;
+    float: none !important;
+    width: 28px !important;
+    height: 28px !important;
+    border-radius: 50% !important;
+    border: 3px solid #E2E8F0 !important;
+    border-top-color: #0EA5E9 !important;
+    animation: cf7-spin 0.7s linear infinite !important;
+    background: transparent !important;
+}
+
+@keyframes cf7-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.wpcf7-form-control-wrap[data-name="consent"] {
+    display: flex !important;
+    align-items: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: auto !important;
+}
+
+.wpcf7-form-control-wrap[data-name="consent"] .wpcf7-list-item {
+    display: flex !important;
+    align-items: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.wpcf7-form-control-wrap[data-name="consent"] .wpcf7-list-item-label {
+    display: none !important;
+}
+
+/* Скрываем дефолтный чекбокс */
+.wpcf7-form-control-wrap[data-name="consent"] input[type="checkbox"] {
+    width: 20px !important;
+    height: 20px !important;
+    border: 2px solid #CBD5E1 !important;
+    border-radius: 4px !important;
+    background: white !important;
+    transition: all 0.2s ease !important;
+    cursor: pointer !important;
+    appearance: none !important;
+    -webkit-appearance: none !important;
+    position: relative !important;
+    flex-shrink: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: inline-block !important;
+    box-sizing: border-box !important;
+    min-width: 20px !important;
+    min-height: 20px !important;
+}
+
+/* Состояние checked */
+.wpcf7-form-control-wrap[data-name="consent"] input[type="checkbox"]:checked {
+    background: #0EA5E9 !important;
+    border-color: #0EA5E9 !important;
+}
+
+/* Галочка */
+.wpcf7-form-control-wrap[data-name="consent"] input[type="checkbox"]:checked::after {
+    content: '✓' !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    color: white !important;
+    font-size: 14px !important;
+    font-weight: bold !important;
+    line-height: 1 !important;
+}
+
+.wpcf7-form-control-wrap[data-name="consent"] input[type="checkbox"]:hover {
+    border-color: #0EA5E9 !important;
+}
+
+.wpcf7-form-control-wrap[data-name="consent"] input[type="checkbox"]:focus {
+    outline: none !important;
+    box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.2) !important;
+}
+
+.wpcf7-form-control-wrap[data-name="consent"] .wpcf7-not-valid-tip {
+    display: none !important;
+}
+
+/* Чекбокс с ошибкой — красная обводка */
+.wpcf7-form .wpcf7-not-valid[type="checkbox"] {
+    border: 2px solid #EF4444 !important;
+        border-radius: 5px;
+
+}
+
+/* Чекбокс с ошибкой — стили для обёртки */
+.wpcf7-form-control-wrap[data-name="consent"] .wpcf7-not-valid {
+        border: 2px solid #EF4444 !important;
+        border-radius: 5px;
+
+}

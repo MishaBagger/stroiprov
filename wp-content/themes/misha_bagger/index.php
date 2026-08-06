@@ -22,7 +22,7 @@ $bg_url = $bg_image_id ? wp_get_attachment_image_url($bg_image_id, 'full') : '';
                 <?php the_field('subtitle', $page_id); ?>
             </p>
             <div class="flex  mt-6">
-                <button class="cursor-pointer bg-primary-500 hover:bg-transparent border-primary-500 border-2 text-white text-xl font-semibold py-3 px-8 rounded-2xl transition duration-300">
+                <button class="cursor-pointer bg-primary-500 hover:bg-transparent border-primary-500 border-2 text-white text-xl font-semibold py-3 px-8 rounded-2xl transition duration-300 open-modal">
                     <?php the_field('button', $page_id); ?>
                 </button>
             </div>
@@ -208,7 +208,7 @@ $bg_url = $bg_image_id ? wp_get_attachment_image_url($bg_image_id, 'full') : '';
                 <?php the_field('content_section_3', $page_id); ?>
             </p>
 
-            <button class="cursor-pointer hover:bg-primary-50 hover:text-secondary bg-secondary border-secondary  border-2 text-white text-xl font-semibold py-3 px-10 mt-5 rounded-2xl transition duration-300 block mx-auto">
+            <button class="cursor-pointer hover:bg-primary-50 hover:text-secondary bg-secondary border-secondary  border-2 text-white text-xl font-semibold py-3 px-10 mt-5 rounded-2xl transition duration-300 block mx-auto open-modal">
                 <?php the_field('button', $page_id); ?>
             </button>
         </div>
@@ -426,7 +426,7 @@ $bg_url = $bg_image_id ? wp_get_attachment_image_url($bg_image_id, 'full') : '';
                         <div class="p-6">
                             <h3 class="text-2xl font-bold text-primary-800 font-arimo"><?php echo esc_html($title); ?></h3>
                             <p class="text-gray-600 font-golos mt-2 leading-relaxed"><?php echo esc_html($text); ?></p>
-                            <button class="cursor-pointer hover:bg-primary-50 hover:text-secondary bg-secondary border-secondary  border-2 text-white text-xl font-semibold py-3 px-10 mt-5 rounded-2xl transition duration-300 block mx-auto">
+                            <button class="cursor-pointer hover:bg-primary-50 hover:text-secondary bg-secondary border-secondary  border-2 text-white text-xl font-semibold py-3 px-10 mt-5 rounded-2xl transition duration-300 block mx-auto open-modal">
                                 <?php the_field('button', $page_id); ?>
                             </button>
                         </div>

@@ -81,6 +81,22 @@ $cookies_page_id = $home_page ? $home_page->ID : 0;
         </div>
 </footer>
 
+<div id="modal-overlay" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-9999 flex items-center justify-center opacity-0 invisible transition-all duration-300">
+
+    <div class="bg-white rounded-2xl shadow-lg p-8 border border-gray-100 xs:max-w-[90%] sm:max-w-md mx-auto">
+        <button id="modal-close" class="absolute top-3 right-4 text-gray-400 hover:text-gray-800 text-3xl cursor-pointer transition-colors duration-200 bg-transparent border-0 leading-none">
+            &times;
+        </button>
+
+        <?php echo do_shortcode('[contact-form-7 id="c356283" title="Заявка с главной страницы"]'); ?>
+
+        
+
+    </div>
+
+
+</div>
+
 <div id="cookie-notice" class="fixed bottom-4 left-1/2 -translate-x-1/2 z-9999 max-w-2xl w-[90%] bg-primary-900 text-gray-200 px-4 py-4 md:px-6 md:py-5 rounded-xl shadow-2xl border border-primary-700 transition-all duration-700 transform translate-y-10 opacity-0 pointer-events-none">
     <div class="flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4">
         <p class="text-sm sm:text-base xs:text-xs font-golos text-gray-200 leading-relaxed sm:text-left">
@@ -90,27 +106,10 @@ $cookies_page_id = $home_page ? $home_page->ID : 0;
 
         </p>
         <button id="cookie-accept" class="shrink-0 bg-primary-500 hover:bg-primary-400 text-white font-semibold py-2.5 px-6 md:py-3 md:px-8 rounded-lg text-sm md:text-base font-golos cursor-pointer transition-all duration-300 hover:scale-105 active:scale-95">
-            Принять
+            <?php the_field('button_cookies', $cookies_page_id) ?>
         </button>
     </div>
 </div>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const cookieNotice = document.getElementById('cookie-notice');
-        const cookieAccept = document.getElementById('cookie-accept');
-
-        if (!localStorage.getItem('cookie_accept')) {
-            cookieNotice.classList.remove('pointer-events-none', 'hidden', 'translate-y-10', 'opacity-0');
-            cookieNotice.classList.add('translate-y-0', 'opacity-100');
-        }
-
-        cookieAccept.addEventListener('click', function() {
-            localStorage.setItem('cookie_accept', 'true');
-            cookieNotice.classList.add('hidden', 'translate-y-10', 'opacity-0', 'pointer-events-none');
-        });
-    });
-</script>
 
 <?php wp_footer(); ?>
 </body>
