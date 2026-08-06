@@ -189,3 +189,127 @@ if (function_exists('acf_add_options_page')) {
 add_theme_support('post-thumbnails');
 
 add_filter('wpcf7_autop_or_not', '__return_false');
+
+add_action('init', function() {
+    register_post_type('program_workers', [
+        'labels' => [
+            'name'               => 'Программы для рабочих',
+            'singular_name'      => 'Программа для рабочих',
+            'add_new'            => 'Добавить программу',
+            'add_new_item'       => 'Добавить программу для рабочих',
+            'edit_item'          => 'Редактировать программу',
+            'new_item'           => 'Новая программа',
+            'view_item'          => 'Просмотреть программу',
+            'search_items'       => 'Искать программы',
+            'not_found'          => 'Программ не найдено',
+            'not_found_in_trash' => 'В корзине нет программ',
+            'menu_name'          => 'Программы для рабочих',
+        ],
+        'public'             => true,
+        'publicly_queryable' => true,
+        'show_ui'            => true,
+        'show_in_menu'       => true,
+        'show_in_admin_bar'  => true,
+        'show_in_nav_menus'  => false,
+        'has_archive'        => false,
+        'hierarchical'       => false,
+        'menu_position'      => 20,
+        'menu_icon'          => 'dashicons-welcome-learn-more',
+        'supports'           => ['title', 'editor', 'thumbnail'],
+        'rewrite'            => ['slug' => 'programs', 'with_front' => false],
+        'capability_type'    => 'post',
+    ]);
+});
+
+add_action('init', function() {
+    register_post_type('program_qualified', [
+        'labels' => [
+            'name'               => 'Повышение квалификации',
+            'singular_name'      => 'Программа повышения квалификации',
+            'add_new'            => 'Добавить программу',
+            'add_new_item'       => 'Добавить программу повышения квалификации',
+            'edit_item'          => 'Редактировать программу',
+            'new_item'           => 'Новая программа',
+            'view_item'          => 'Просмотреть программу',
+            'search_items'       => 'Искать программы',
+            'not_found'          => 'Программ не найдено',
+            'not_found_in_trash' => 'В корзине нет программ',
+            'menu_name'          => 'Повышение квалификации',
+        ],
+        'public'             => true,
+        'publicly_queryable' => true,
+        'show_ui'            => true,
+        'show_in_menu'       => true,
+        'show_in_admin_bar'  => true,
+        'show_in_nav_menus'  => false,
+        'has_archive'        => false,
+        'hierarchical'       => false,
+        'menu_position'      => 21,
+        'menu_icon'          => 'dashicons-update',
+        'supports'           => ['title', 'editor', 'thumbnail'],
+        'rewrite'            => ['slug' => 'qualification', 'with_front' => false],
+        'capability_type'    => 'post',
+    ]);
+});
+
+add_action('init', function() {
+    register_post_type('program_retraining', [
+        'labels' => [
+            'name'               => 'Профессиональная переподготовка',
+            'singular_name'      => 'Программа переподготовки',
+            'add_new'            => 'Добавить программу',
+            'add_new_item'       => 'Добавить программу переподготовки',
+            'edit_item'          => 'Редактировать программу',
+            'new_item'           => 'Новая программа',
+            'view_item'          => 'Просмотреть программу',
+            'search_items'       => 'Искать программы',
+            'not_found'          => 'Программ не найдено',
+            'not_found_in_trash' => 'В корзине нет программ',
+            'menu_name'          => 'Профпереподготовка',
+        ],
+        'public'             => true,
+        'publicly_queryable' => true,
+        'show_ui'            => true,
+        'show_in_menu'       => true,
+        'show_in_admin_bar'  => true,
+        'show_in_nav_menus'  => false,
+        'has_archive'        => false,
+        'hierarchical'       => false,
+        'menu_position'      => 22,
+        'menu_icon'          => 'dashicons-editor-paste-word',
+        'supports'           => ['title', 'editor', 'thumbnail'],
+        'rewrite'            => ['slug' => 'retraining', 'with_front' => false],
+        'capability_type'    => 'post',
+    ]);
+});
+
+add_action('init', function() {
+    register_post_type('program_additional', [
+        'labels' => [
+            'name'               => 'Дополнительное образование',
+            'singular_name'      => 'Программа допобразования',
+            'add_new'            => 'Добавить программу',
+            'add_new_item'       => 'Добавить программу допобразования',
+            'edit_item'          => 'Редактировать программу',
+            'new_item'           => 'Новая программа',
+            'view_item'          => 'Просмотреть программу',
+            'search_items'       => 'Искать программы',
+            'not_found'          => 'Программ не найдено',
+            'not_found_in_trash' => 'В корзине нет программ',
+            'menu_name'          => 'Дополнительное образование',
+        ],
+        'public'             => true,
+        'publicly_queryable' => true,
+        'show_ui'            => true,
+        'show_in_menu'       => true,
+        'show_in_admin_bar'  => true,
+        'show_in_nav_menus'  => false,
+        'has_archive'        => false,
+        'hierarchical'       => false,
+        'menu_position'      => 23,
+        'menu_icon'          => 'dashicons-media-document',
+        'supports'           => ['title', 'editor', 'thumbnail'],
+        'rewrite'            => ['slug' => 'additional', 'with_front' => false],
+        'capability_type'    => 'post',
+    ]);
+});
